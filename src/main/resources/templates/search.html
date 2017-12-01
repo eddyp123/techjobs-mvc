@@ -37,6 +37,7 @@
     <hr />
 
     <div th:fragment="searchResults">
+        <h1 th:if="${jobs}" th:text="${jobs.size()+ ' Result(s)'}"></h1>
         <div th:if="${jobs} and ${jobs.size()}">
             <div th:each="job: ${jobs}">
             <table class="job-listing">
