@@ -30,27 +30,24 @@
             <label for="searchTerm">Keyword:</label>
             <input type="text" name="searchTerm" id="searchTerm" />
         </p>
-
         <input type="submit" value="Search" />
     </form>
 
     <hr />
 
-    <div th:fragment="searchResults">
-        <h1 th:if="${jobs}" th:text="${jobs.size()+ ' Result(s)'}"></h1>
-        <div th:if="${jobs} and ${jobs.size()}">
-            <div th:each="job: ${jobs}">
+    <div th:fragment="searchTerm">
+    <h1 th:if="${jobs}" th:text="${jobs.size()+ ' Result(s)'}"></h1>
+    <div th:if="${jobs} and ${jobs.size()}">
+        <div th:each="job : ${jobs}">
             <table class="job-listing">
-                <tr th:each="item, idx: ${job}" th:class="${idx.odd} ? 'odd'">
+                <tr th:each="item, idx : ${job}" th:class="${idx.odd} ? 'odd'">
                     <td th:text="${item.key}"></td>
                     <td th:text="${item.value}"></td>
                 </tr>
             </table>
-            </div>
         </div>
     </div>
-"
-    <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    </div>
 
 </div>
 
